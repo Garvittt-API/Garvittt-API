@@ -1,8 +1,12 @@
 Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) My name is Garvit Choudhary
 =========================================================================================================================================
 
+
+
 🧩 Discord API Developer 🤖 Building reliable bots 🧠 Logic-driven
 ------------------------------------------------------------------
+
+
 
 I build reliable Discord bots, scalable backend systems, and smart automations that save time and improve community experiences.
 
@@ -15,12 +19,10 @@ I build reliable Discord bots, scalable backend systems, and smart automations t
 ### Socials
 
 <p align="left"> <a href="https://www.github.com/Garvittt-API" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" alt="GitHub" title="GitHub" /> </picture> </a> <a href="https://www.gitlab.com/garvittt" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/gitlab.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/gitlab.svg" width="32" height="32" alt="GitLab" title="GitLab" /> </picture> </a> <a href="https://www.x.com/garvit_dev" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" alt="Twitter" title="Twitter" /> </picture> </a> <a href="https://www.codepen.io/Garvittt-API" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codepen-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codepen.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codepen.svg" width="32" height="32" alt="CodePen" title="CodePen" /> </picture> </a> <a href="https://codesandbox.io/u/garvitchoudhary2315" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codesandbox-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codesandbox.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/codesandbox.svg" width="32" height="32" alt="CodeSandbox" title="CodeSandbox" /> </picture> </a> <a href="https://discord.com/users/1061339539840446504" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" alt="Discord" title="Discord" /> </picture> </a></p>
+<a href="https://www.github.com/Garvittt-API" target="_blank" rel="noreferrer"><img
+src="https://img.shields.io/github/followers/Garvittt-API?logo=github&style=for-the-badge&color=64748b&labelColor=27272a" /></a>
 ### Badges
 
 <b>My GitHub Stats</b>
 
-<a href="http://www.github.com/Garvittt-API"><img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&hide=&count_private=true&title_color=0f172a&text_color=14b8a6&icon_color=14b8a6&bg_color=000000&hide_border=true&show_icons=true" alt="Garvittt-API's GitHub stats" /></a>
-
-<a href="http://www.github.com/Garvittt-API"><img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&stroke=14b8a6&background=000000&ring=0f172a&fire=0f172a&currStreakNum=14b8a6&currStreakLabel=0f172a&sideNums=14b8a6&sideLabels=14b8a6&dates=14b8a6&hide_border=true" /></a>
-
-<a href="https://github.com/Garvittt-API" align="left"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&langs_count=10&title_color=0f172a&text_color=14b8a6&icon_color=14b8a6&bg_color=000000&hide_border=true&locale=en&custom_title=Top%20%Languages" alt="Top Languages" /></a>
+<a href="http://www.github.com/Garvittt-API"><img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&stroke=3382ed&background=27272a&ring=64748b&fire=64748b&currStreakNum=3382ed&currStreakLabel=64748b&sideNums=3382ed&sideLabels=3382ed&dates=3382ed&hide_border=true" /></a>
