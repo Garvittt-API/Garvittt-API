@@ -321,20 +321,10 @@ const Garvittt = {
 <div align="center">
 
 <a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a0a0f&title_color=007BFF&icon_color=7B2FF7&text_color=e0e0e8&ring_color=007BFF&include_all_commits=true&count_private=true" width="48%" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" width="49%" alt="GitHub Stats" />
 </a>
 <a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&theme=tokyonight&hide_border=true&background=0a0a0f&ring=007BFF&fire=7B2FF7&currStreakLabel=00D4FF&sideLabels=e0e0e8" width="48%" alt="GitHub Streak" />
-</a>
-
-</div>
-
-<br>
-
-<div align="center">
-
-<a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&bg_color=0a0a0f&title_color=007BFF&text_color=e0e0e8&langs_count=8" width="50%" alt="Top Languages" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&theme=tokyonight&hide_border=true" width="49%" alt="GitHub Streak" />
 </a>
 
 </div>
@@ -344,7 +334,10 @@ const Garvittt = {
 <div align="center">
 
 <a href="https://github.com/Garvittt-API">
-  <img src="https://github-contributor-stats.vercel.app/api?username=Garvittt-API&theme=tokyonight&hide_border=true&background=0a0a0f&title_color=007BFF&text_color=e0e0e8" width="50%" alt="Contributor Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" width="49%" alt="Top Languages" />
+</a>
+<a href="https://github.com/Garvittt-API">
+  <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&show=reviews,prs_merged,pr_merged" width="49%" alt="PR Stats" />
 </a>
 
 </div>
