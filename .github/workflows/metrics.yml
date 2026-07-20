@@ -20,6 +20,3 @@ jobs:
           user: Garvittt-API
           template: terminal, markdown
           base: header, activity, community, repositories, metadata
-          config_output: png
-          output: |
-            github-metrics.svg
