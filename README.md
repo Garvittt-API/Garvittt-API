@@ -4,8 +4,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:007BFF,25:7B2FF7,50:00D4FF,75:00E676,100:007BFF&height=280&section=header&text=Hey%2C+I'm+Garvittt!&fontSize=72&fontColor=ffffff&fontAlignY=38&desc=CS+Student+%7C+Discord+Bot+Dev+%7C+Logic+Driven&descSize=22&descAlignY=60&descAlign=50&animation=fadeIn&customColorList=0,25,50,75,100" width="100%" />
 </a>
 
-<img src="https://avatars.githubusercontent.com/u/196936362?v=4" width="130" style="border-radius: 50%; border: 4px solid #007BFF; box-shadow: 0 0 40px rgba(0,123,255,0.4);" />
-
 <br><br>
 
 <a href="https://discord.com/users/1061339539840446504"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
@@ -21,31 +19,32 @@
 <img src="https://img.shields.io/github/stars/Garvittt-API?color=FFD700&style=for-the-badge" />
 <img src="https://img.shields.io/github/followers/Garvittt-API?color=00E676&style=for-the-badge" />
 
-<br><br>
+</div>
 
-<img src="https://raw.githubusercontent.com/Garvittt-API/Garvittt-API/output/github-contribution-grid-snake-dark.svg" width="100%" />
+---
+
+## <img src="https://em-content.zobj.net/source/microsoft-teams/363/rocket_1f680.gif" width="30"> Profile Dashboard
+
+<div align="center">
+
+[![GitHub Metrics](https://raw.githubusercontent.com/Garvittt-API/Garvittt-API/metrics/github/metrics.svg?no-bg=true)](https://github.com/Garvittt-API/Garvittt-API/metrics/)
+
+</div>
+
+<br>
+
+<div align="center">
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&theme=tokyonight&hide_border=true)](https://github.io/streak-stats/)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true)](https://github.com/Garvittt-API)
 
 </div>
 
 ---
 
-## <img src="https://em-content.zobj.net/source/microsoft-teams/363/wave_1f44b.gif" width="30"> About Me
-
-```javascript
-const Garvittt = {
-  role: "CS Student",
-  specialty: "Discord Bot Development",
-  languages: ["Python", "JavaScript", "TypeScript", "Dart"],
-  frameworks: ["React", "Node.js", "Flutter", "FastAPI"],
-  philosophy: "Code → Debug → Repeat",
-  funFact: "I speak to APIs more than humans",
-  status: "🟣 Available for cool projects"
-};
-```
-
----
-
 ## <img src="https://em-content.zobj.net/source/microsoft-teams/363/hammer_and_wrench_1f6e0.gif" width="30"> Tech Stack
+
+<div align="center">
 
 <img src="https://img.shields.io/badge/Python-3670A0?style=flat-square&logo=python&logoColor=ffdd54" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
@@ -70,6 +69,8 @@ const Garvittt = {
 <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" />
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+
+</div>
 
 ---
 
@@ -103,23 +104,12 @@ const Garvittt = {
 
 ---
 
-## <img src="https://em-content.zobj.net/source/microsoft-teams/363/bar_chart_1f4ca.gif" width="30"> GitHub Stats
+## <img src="https://em-content.zobj.net/source/microsoft-teams/363/bar_chart_1f4ca.gif" width="30"> Activity
 
 <div align="center">
-<a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" width="49%" />
-</a>
-<a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&theme=tokyonight&hide_border=true" width="49%" />
-</a>
-</div>
 
-<br>
+[![Garvittt's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Garvittt-API&bg_color=0d1117&color=007BFF&line=7B2FF7&point=00D4FF&area=true&area_color=007BFF&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
-<div align="center">
-<a href="https://github.com/Garvittt-API">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" width="49%" />
-</a>
 </div>
 
 ---
@@ -131,5 +121,3 @@ const Garvittt = {
 <p align="center">
   <img src="https://img.shields.io/badge/Made_with_❤️_by_Garvittt-007BFF?style=for-the-badge" />
 </p>
-
-</div>
