@@ -8,7 +8,7 @@
 
 <br>
 
-
+<img src="https://octodex.github.com/images/murakamicat.png" width="300" align="right">
 
 📍 I am Garvittt from India. I'm a CS student who loves building things with code.
 I enjoy learning new technologies and exploring bot development.
@@ -74,19 +74,4 @@ I enjoy learning new technologies and exploring bot development.
   </a>
 </p>
 
----
 
-<table>
-  <tr>
-   <td>
-     <img src="https://github-readme-stats-sigma-ten.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
-   </td>
-   <td>
-     <img src="https://streak-stats.demolab.com/?user=Garvittt-API&theme=tokyonight&hide_border=true" />
-   </td>
- </tr>
-</table>
-
-<p align="center">
-  <img src="https://github-readme-stats-sigma-ten.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
-</p>
