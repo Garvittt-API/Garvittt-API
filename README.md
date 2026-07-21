@@ -5,11 +5,11 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:007BFF,50:7B2FF7,100:00D4FF&height=220&section=header&text=Garvittt.exe&fontSize=60&fontColor=ffffff&fontAlignY=45&desc=CS+Student+%7C+Discord+Bot+Dev+%7C+Logic+Driven&descSize=18&descAlignY=65&descAlign=50" width="100%" />
 
-<p align="right"> <img src="https://komarev.com/ghpvc/?username=Garvittt-API&label=Profile%20views&color=0e75b6&style=flat" alt="Garvittt" /> </p>
+<p align="right"> <img src="https://img.shields.io/badge/Profile%20views-Garvittt-0e75b6?style=flat" alt="Garvittt" /> </p>
 
 <br>
 
-<img src="https://octodex.github.com/images/murakamicat.png" width="300" align="right">
+
 
 📍 I am Garvittt from India. I'm a CS student who loves building things with code.
 I enjoy learning new technologies and exploring bot development.
@@ -63,7 +63,7 @@ I enjoy learning new technologies and exploring bot development.
      <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
    </td>
    <td>
-     <img src="https://github-readme-streak-stats.herokuapp.com/?user=Garvittt-API&theme=tokyonight&hide_border=true" />
+     <img src="https://github-readme-streak-stats.vercel.app/?user=Garvittt-API&theme=tokyonight&hide_border=true" />
    </td>
  </tr>
 </table>
