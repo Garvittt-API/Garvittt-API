@@ -63,7 +63,7 @@ I enjoy learning new technologies and exploring bot development.
   <a href="https://reddit.com/user/garvittt_">
     <img src="https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=reddit&logoColor=white" />
   </a>
-  <a href="https://garvitttexe.vercel.app">
+  <a href="https://garvitt-dev.vercel.app/">
     <img src="https://img.shields.io/badge/Portfolio-%23007BFF.svg?logo=vercel&logoColor=white" />
   </a>
   <a href="https://leetcode.com/u/logic_forge/">
