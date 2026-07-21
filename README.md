@@ -14,7 +14,7 @@
 📍 I am Garvittt from India. I'm a CS student who loves building things with code.
 I enjoy learning new technologies and exploring bot development.
 
-- 🔭 I'm currently building **[Flow Music Player](https://github.com/Garvittt-API/Flow-releases)**
+- 🔭 I'm currently building **[Val-X](https://github.com/Garvittt-API/Val-X)**
 - 🌱 I'm currently learning **Flutter & Advanced Bot Development**
 - 🧩 I build **Discord Bots** using Discord.js
 - 📫 Reach me @ **[garvitchoudhary2315@gmail.com](mailto:garvitchoudhary2315@gmail.com)**
