@@ -79,14 +79,14 @@ I enjoy learning new technologies and exploring bot development.
 <table>
   <tr>
    <td>
-     <img src="https://github-readme-stats.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
+     <img src="https://github-readme-stats-sigma-ten.vercel.app/api?username=Garvittt-API&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
    </td>
    <td>
-     <img src="https://github-readme-streak-stats.vercel.app/?user=Garvittt-API&theme=tokyonight&hide_border=true" />
+     <img src="https://streak-stats.demolab.com/?user=Garvittt-API&theme=tokyonight&hide_border=true" />
    </td>
  </tr>
 </table>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
+  <img src="https://github-readme-stats-sigma-ten.vercel.app/api/top-langs/?username=Garvittt-API&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
 </p>
