@@ -10,8 +10,8 @@
 
 <img src="https://octodex.github.com/images/murakamicat.png" width="300" align="right">
 
-📍 I am Garvittt from India. I'm a CS student who loves building things with code.
-I enjoy learning new technologies and exploring bot development.
+📍 I am Garvit from India, a Cybersecurity student passionate about building secure applications and exploring automated bot development. 
+I love learning new technologies, writing code in Node.js and Python, and understanding how to protect systems from modern threats.
 
 - 🔭 I'm currently building **[Val-X](https://github.com/Garvittt-API/Val-X)**
 - 🌱 I'm currently learning **Flutter & Advanced Bot Development**
