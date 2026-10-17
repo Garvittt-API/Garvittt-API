@@ -9,6 +9,9 @@ I am a versatilist and easily adapt to different hats (Full Stack Web Developer 
 <br/>
 
 <img align="right" alt="GIF" src="https://raw.githubusercontent.com/rahul-jha98/rahul-jha98/main/techstack.gif" width="360px"/>
+
+
+
   
 ### 🧐 More About Me:
 
@@ -22,9 +25,6 @@ I am a versatilist and easily adapt to different hats (Full Stack Web Developer 
 
 <br>
 
-
-
----
 
 ### 🔨 Languages and Tools:
 <a href="https://pytorch.org/" target="_blank"> <img align="left" src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/pytorch/pytorch.svg" alt="pytorch" height="42px"/> </a> 
