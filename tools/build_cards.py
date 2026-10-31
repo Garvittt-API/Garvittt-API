@@ -8,9 +8,10 @@ no external services, no build step in the README.
 
     python3 tools/build_cards.py
 
-Two card sizes:
-    wide   1100 px  -> hero, builds, arsenal (shown full width)
-    tall    560 px  -> the 2x2 grid (shown at ~46% width, two per row)
+Three cards, nothing else:
+    hero     1100 px  -> the banner
+    system    760 px  -> the neofetch profile card
+    arsenal  1100 px  -> the stack
 """
 
 import math
@@ -353,45 +354,65 @@ def band_sigils(x0, y0, cols, rows, cell=10, seed=23):
 LEVELS = " .:-=+*#%@"
 
 
-def ascii_portrait(x, y, cols, rows, ch=7.6, lh=8.2, size=8.0):
+def ascii_portrait(x, y, cols, rows, ch=7.6, lh=8.2, size=8.0, scheme="mint"):
     """dithered duotone bust — big hood, dark visor, headphone cups, shoulders"""
     out = []
 
     def shade(nx, ny):
-        # hood / skull mass
-        hood = 1 - math.hypot((nx - .50) / .33, (ny - .34) / .33)
-        # face plate inside the hood
-        face = 1 - math.hypot((nx - .50) / .21, (ny - .44) / .22)
-        # neck + shoulders
-        neck = 1 - math.hypot((nx - .50) / .13, (ny - .80) / .14)
-        sh = 1 - math.hypot((nx - .50) / .72, (ny - 1.14) / .36)
-        v = max(hood * .72, face * .96, neck * .5, sh * .84)
-        # visor: a wide dark band with bright edges
-        if .32 < ny < .44 and abs(nx - .5) < .20:
-            v = .98
+        """head + neck + trapezoid torso, lit from the upper left"""
+        # head (slightly egg shaped)
+        hx, hy, hrx, hry = .50, .24, .255, .195
+        head = 1 - math.hypot((nx - hx) / hrx, (ny - hy) / hry)
+        # jaw, narrows toward the chin
+        jaw = 1 - math.hypot((nx - .50) / (.175 - .06 * max(0, ny - .30)),
+                             (ny - .385) / .095)
+        # neck
+        neck = 1 - math.hypot((nx - .50) / .095, (ny - .495) / .065)
+        # torso: trapezoid, half width grows with y
+        v = 0.0
+        if .520 < ny < 1.02:
+            half = .105 + (ny - .520) * .96
+            edge = abs(nx - .5) / half
+            if edge < 1:
+                v = .80 - .30 * edge ** 2
+                # collar notch
+                if ny < .60 and abs(nx - .5) < .085:
+                    v = .32
+        v = max(head, jaw * .97, neck * .70, v)
+        # visor band across the eyes
+        if .245 < ny < .325 and abs(nx - .5) < .215:
+            v = .99
         # headphone cups
-        for cx in (.15, .85):
-            d = math.hypot((nx - cx) / .07, (ny - .42) / .13)
+        for cx in (.168, .832):
+            d = math.hypot((nx - cx) / .050, (ny - .300) / .088)
             if d < 1:
-                v = max(v, .88 * (1 - d) + .25)
+                v = max(v, .58 * (1 - d) + .16)
         # rim light from the upper left
-        v += .20 * max(0, .55 - nx) * (hood > 0)
+        v += .24 * max(0, .50 - nx) * (head > 0)
+        # fade the torso out toward the caption
+        if ny > .84:
+            v *= max(.15, 1 - (ny - .84) * 3.6)
         return v
 
     for r in range(rows):
         for c in range(cols):
             nx, ny = (c + .5) / cols, (r + .5) / rows
-            v = max(0.0, min(1.0, shade(nx, ny) * 1.18 + bayer(c, r) * .22))
-            if v < .09:
+            v = max(0.0, min(1.0, shade(nx, ny) * 1.14 + bayer(c, r) * .24))
+            if v < .10:
                 continue
             g = LEVELS[min(len(LEVELS) - 1, int(v * len(LEVELS)))]
             if g == " ":
                 continue
-            color = MINT if ny < .30 else (CYAN if ny < .58 else "#2E8FD4")
-            if v > .86:
-                color = WHITE
-            elif .42 < v < .55:
-                color = "#13B78C"
+            if scheme == "cyan":
+                color = "#1C8FB8" if ny < .30 else (CYAN if ny < .62 else "#2563A8")
+                if v > .86:
+                    color = "#BFEFFF"
+            else:
+                color = MINT if ny < .30 else (CYAN if ny < .58 else "#2E8FD4")
+                if v > .86:
+                    color = WHITE
+                elif .42 < v < .55:
+                    color = "#13B78C"
             out.append(text(round(x + c * ch, 2), round(y + r * lh, 2), g, size, color,
                             opacity=.95))
     return "".join(out)
@@ -534,317 +555,99 @@ def build_hero():
 
     return card(W, BH, "readme.md", "PROFILE",
                 "Garvittt.exe — cybersecurity student, Discord API developer.",
-                "".join(body), "one profile, four angles: system · shell · config · manifest")
+                "".join(body), "one profile, three screens: hero · system · arsenal")
 
 
-# ── 02 · system.tsx (tall) ──────────────────────────────────────────────────
+# ── 02 · system.tsx — the neofetch card ─────────────────────────────────────
 def build_system():
-    W, BH = 560, globals().get('HUG', 528)
-    p, cell, rows = 16, 8, 12
+    W = 760
+    p, cell, rows = 18, 8, 14
     band_h = rows * cell
-    body = [band_nebula(p, p, (W - 2 * p) // cell, rows, cell, seed=21)]
+    top = HEAD_H + p + band_h + 18
+    PORTRAIT_W = 210
 
-    top = p + band_h + 20
-    body.append(ascii_portrait(14, top + 8, 25, 21, ch=7.4, lh=8.0, size=7.8))
-    body.append(text(14, top + 21 * 8.0 + 20, "gv-01 · human, allegedly", 9.5, DIM))
-    body.append(f'<line x1="212" y1="{top}" x2="212" y2="{top + 21 * 8.0 + 30}" stroke="{FAINT}" stroke-opacity=".6"/>')
+    body = [band_nebula(p, HEAD_H + p, (W - 2 * p) // cell, rows, cell, seed=21)]
+    PCOLS, PROWS, PCH, PLH = 24, 56, 8.0, 8.6
+    body.append(ascii_portrait(14, top - 6, PCOLS, PROWS, ch=PCH, lh=PLH, size=8.2,
+                               scheme="cyan"))
+    body.append(text(16, top - 6 + PROWS * PLH + 20, "gv-01 · human, allegedly", 10, DIM))
 
-    x0, x1 = 230, W - 18
-    s = 11.6
-    y = top + 8
-    for k, v in [("OS", "Arch · Linux 6.x"), ("WM", "Hyprland"), ("Editor", "Neovim"),
-                 ("Shell", "zsh + starship")]:
-        body.append(kv(y, k, v, x0, x1, s))
-        y += 18
+    # ── neofetch rows ───────────────────────────────────────────────────────
+    ROWS = [
+        ("section", "OS"),
+        ("kv", "Uptime:", "1 year, 9 months"),
+        ("kv", "Host:", "PLANET EARTH · INDIA"),
+        ("kv", "Kernel:", "6.x-arch1"),
+        ("kv", "IDE:", "Neovim · VS Code"),
+        ("gap",),
 
-    y += 4
-    body.append(f'<line x1="{x0}" y1="{y-11}" x2="{x1}" y2="{y-11}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    body.append(text(x0, y + 3, "arsenal", 10, CYAN, 600, ls="1.5"))
-    y += 20
-    for k, v in [("lang", "python · ts · go"), ("front", "next.js · tailwind"),
-                 ("back", "fastapi · discord.py"), ("sec", "appsec · burp")]:
-        body.append(kv(y, k, v, x0, x1, s))
-        y += 18
+        ("section", "Languages"),
+        ("kv", "Programming:", "Python, TypeScript, JavaScript, Go, Rust"),
+        ("kv", "Human:", "English, Hindi"),
+        ("gap",),
 
-    y += 2
-    body.append(f'<line x1="{x0}" y1="{y-9}" x2="{x1}" y2="{y-9}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    px = x0
-    for hexv, name in [(MINT, "mint"), (CYAN, "cyan"), (WHITE, "paper")]:
-        body.append(f'<rect x="{px}" y="{y+2}" width="18" height="9" rx="2" fill="{hexv}"/>')
-        body.append(text(px + 23, y + 10, name, 9.5, DIM))
-        px += 23 + len(name) * cw(9.5) + 12
+        ("section", "Tools"),
+        ("kv", "Backend:", "FastAPI, Node.js, discord.py"),
+        ("kv", "Frontend:", "Next.js, React, Tailwind"),
+        ("kv", "Data:", "Postgres, MongoDB, FAISS"),
+        ("kv", "Ops:", "Docker, Linux, Git, Cloudflare"),
+        ("gap",),
 
-    y += 26
-    body.append(runs(x0, y, [("$ ", DIM), ("now", MINT), (" — bots that stay online", TEXT)], 11))
-    body.append(runs(x0, y + 15, [("    and breaking things on purpose.", TEXT)], 11))
+        ("section", "About"),
+        ("kv", "Role:", "Cybersecurity student · Discord API dev"),
+        ("kv", "Focus:", "appsec, bots, AI tooling"),
+        ("gap",),
 
-    # mini contribution heatmap, bottom right
-    hx0, hy0 = x0, BH - 128
-    body.append(text(hx0, hy0 - 12, "contributions · last 26 weeks", 9.5, DIM))
-    rng = random.Random(7)
-    levels = [FAINT, "#0E4C42", "#0B7A62", "#0FA57F", MINT]
-    for wk in range(26):
-        for day in range(7):
-            lvl = rng.choices([0, 1, 2, 3, 4], weights=[24, 24, 26, 18, 8])[0]
-            body.append(f'<rect x="{hx0 + wk*12}" y="{hy0 + day*12}" width="10" height="10" rx="2" '
-                        f'fill="{levels[lvl]}" fill-opacity="{1 if lvl else .5}"/>')
-    body.append(text(hx0, hy0 + 7*12 + 18, "streak 41 days", 9.5, MINT, 500))
-    body.append(text(hx0 + 110, hy0 + 7*12 + 18, "·  412 commits this year", 9.5, DIM))
+        ("section", "Bio"),
+        ("kv", "Bio 1:", "I break systems to learn how they survive,"),
+        ("kv", "Bio 2:", "then build bots that hold up in production."),
+        ("gap",),
 
-    # skill meters, bottom half
-    my = top + 21 * 8.0 + 44
-    for label, pct in [("security", .86), ("bots", .92), ("frontend", .68), ("backend", .80)]:
-        body.append(text(14, my, label, 9.5, DIM))
-        bx0, bw = 78, 118
-        body.append(f'<rect x="{bx0}" y="{my-7}" width="{bw}" height="6" rx="3" '
-                    f'fill="{WHITE}" fill-opacity=".07"/>')
-        body.append(f'<rect x="{bx0}" y="{my-7}" width="{bw*pct:.0f}" height="6" rx="3" '
-                    f'fill="{MINT if pct > .85 else CYAN}"/>')
-        body.append(text(bx0 + bw + 7, my, str(int(pct * 100)), 9.5, CYAN, 600))
-        my += 16
+        ("section", "Contact"),
+        ("kv", "GitHub:", "github.com/Garvittt-API"),
+        ("kv", "Discord:", "@garvittt"),
+        ("kv", "Mail:", "garvitchoudhary2315@gmail.com"),
+        ("gap",),
 
-    my += 8
-    body.append(f'<line x1="14" y1="{my-14}" x2="196" y2="{my-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    body.append(text(14, my, "certs", 9.5, DIM, 600, ls="1.3"))
-    for i, c in enumerate(["Security+ (in progress)", "TryHackMe · top 1%", "PortSwigger academy"]):
-        body.append(text(14, my + 18 + i * 16, "+ " + c, 10, TEXT))
-    my += 18 + 3 * 16 + 14
-    body.append(f'<line x1="14" y1="{my-12}" x2="196" y2="{my-12}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    body.append(text(14, my + 4, "rig", 9.5, DIM, 600, ls="1.3"))
-    body.append(text(14, my + 22, "arch · hyprland · neovim", 10, TEXT))
-    my += 46
-    body.append(f'<line x1="14" y1="{my-12}" x2="196" y2="{my-12}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    body.append(text(14, my + 4, "listening", 9.5, DIM, 600, ls="1.3"))
-    body.append(text(14, my + 22, "lo-fi · phonk · synthwave", 10, TEXT))
-
-    return card(W, BH, "System.tsx", "NEOTECH",
-                "The spec sheet — what runs this machine.",
-                "".join(body), "OS · arsenal · palette · skills · what I'm doing now")
-
-
-# ── 03 · bash.tsx (tall) ────────────────────────────────────────────────────
-def build_bash():
-    W, BH = 560, globals().get('HUG', 528)
-    p, cell, rows = 16, 8, 11
-    band_h = rows * cell
-    body = [band_night(p, p, (W - 2 * p) // cell, rows, cell)]
-
-    s, step = 11.6, 18.4
-    x = 20
-    y = p + band_h + 28
-    out = []
-
-    def prompt(cmd):
-        nonlocal y
-        out.append(runs(x, y, [("garvit@api", MINT), (":", DIM), ("~", CYAN),
-                               (" $ ", DIM), (cmd, WHITE)], s, 600))
-        y += step
-
-    def line(segs, indent=1):
-        nonlocal y
-        out.append(runs(x + indent * cw(s), y, segs, s))
-        y += step
-
-    prompt("whoami")
-    line([("cyber security student · discord api dev", TEXT)])
-    prompt("cat about.txt")
-    line([("> ", DIM), ("I break systems to learn how they", TEXT)])
-    line([("hold up, then build bots that do.", TEXT)], indent=2)
-    prompt("ls stack/")
-    line([("languages/ ", CYAN), ("python  typescript  go  rust", TEXT)])
-    line([("backend/   ", CYAN), ("fastapi  node  discord.py", TEXT)])
-    line([("security/  ", CYAN), ("appsec  burp  semgrep", TEXT)])
-    prompt("uptime")
-    line([("up ", DIM), ("since jan 2025", TEXT), (" · 30 repos · 262 stars", DIM)])
-    prompt("ls projects/")
-    line([("Val-X       ", MINT), ("valorant stat tracker", TEXT)])
-    line([("ScamLens    ", CYAN), ("explainable scam detection", TEXT)])
-    line([("Aegis-Scan  ", MINT), ("local appsec assessment", TEXT)])
-    line([("CodeNexus   ", CYAN), ("semantic code search", TEXT)])
-    prompt("cat currently.txt")
-    line([("> ", DIM), ("hardening discord bots at 2am,", TEXT)])
-    line([("writing up every box I root.", TEXT)], indent=2)
-    prompt("ls links/")
-    line([("github  ", MINT), ("portfolio  ", CYAN), ("discord  ", MINT), ("email", CYAN)])
-    prompt("sudo make it secure")
-    line([("[sudo] password: ", DIM), ("********", DIM)])
-    out.append(runs(x + cw(s), y, [("[ok] ", MINT), ("hardening in progress", TEXT)], s))
-    y += step
-    out.append(f'<rect x="{x}" y="{y-s+2}" width="7" height="12" fill="{MINT}">'
-               f'<animate attributeName="opacity" values="1;1;0;0" dur="1.1s" '
-               f'repeatCount="indefinite"/></rect>')
-
-    return card(W, BH, "Bash.tsx", "PROMPT LOG",
-                "The same profile, read as a shell session.",
-                "".join(body) + "".join(out),
-                "whoami · about · stack · links · uptime · one sudo joke")
-
-
-# ── 04 · yaml.tsx (tall) ────────────────────────────────────────────────────
-def build_yaml():
-    W, BH = 560, globals().get('HUG', 528)
-    p, cell, rows = 16, 10, 7
-    band_h = rows * cell
-    body = [band_sigils(p, p, (W - 2 * p) // cell, rows, cell)]
-
-    s, step = 11.4, 15.4
-    x, y = 20, p + band_h + 24
-    ind = 2 * cw(s)
-    out = []
-
-    def line(depth, segs):
-        nonlocal y
-        out.append(runs(x + depth * ind, y, segs, s))
-        y += step
-
-    line(0, [("# garvit.yaml — the profile, as data", DIM)])
-    line(0, [("profile:", CYAN)])
-    line(1, [("name: ", MINT), ("Garvittt", TEXT)])
-    line(1, [("role: ", MINT), ("Cyber Security Student", TEXT)])
-    line(1, [("tagline: ", MINT), ("I break it, then secure it.", AMBER)])
-    line(1, [("focus: ", MINT), ("[appsec, discord, ai]", TEXT)])
-    line(1, [("stack:", MINT)])
-    line(2, [("frontend: ", CYAN), ("[next.js, react]", TEXT)])
-    line(2, [("backend: ", CYAN), ("[fastapi, node]", TEXT)])
-    line(2, [("data: ", CYAN), ("[postgres, faiss]", TEXT)])
-    line(2, [("infra: ", CYAN), ("[docker, linux]", TEXT)])
-    line(1, [("currently: ", MINT), ("shipping bots", TEXT)])
-    line(1, [("repos: ", MINT), ("30 public · 262 stars", TEXT)])
-    line(1, [("tools:", MINT)])
-    line(2, [("editor: ", CYAN), ("neovim · vscode", TEXT)])
-    line(2, [("shell: ", CYAN), ("zsh + starship + tmux", TEXT)])
-    line(2, [("os: ", CYAN), ("arch btw", TEXT)])
-    line(1, [("open_to: ", MINT), ("[collabs, internships]", TEXT)])
-
-    ry = y - 6
-    out.append(f'<line x1="{x}" y1="{ry}" x2="{W-18}" y2="{ry}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    out.append(text(x, ry + 18, "# links — all live, below this card", 10.5, DIM))
-    links = [("github", "github.com/Garvittt-API"),
-             ("portfolio", "garvitt-dev.vercel.app"),
-             ("discord", "@garvittt"),
-             ("email", "garvitchoudhary2315@gmail.com")]
-    for i, (k, v) in enumerate(links):
-        ly = ry + 36 + i * 16
-        out.append(text(x, ly, k, 10.5, MINT, 600, ls="1.1"))
-        out.append(f'<path d="M{x+70} {ly-3.5} h9 m-3.5 -3.5 3.5 3.5 -3.5 3.5" stroke="{DIM}" '
-                   f'stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
-        out.append(text(x + 86, ly, v, 10.5, CYAN))
-
-    fy2 = ry + 36 + 4 * 16 + 4
-    out.append(f'<line x1="{x}" y1="{fy2-14}" x2="{W-18}" y2="{fy2-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    out.append(runs(x, fy2, [("$ ", DIM), ("yml-lint garvit.yaml", WHITE)], 11))
-    out.append(runs(x, fy2 + 18, [("[ok] ", MINT), ("1 document · 0 errors · 0 warnings", TEXT)], 11))
-    out.append(runs(x, fy2 + 36, [("[ok] ", MINT), ("theme applied: ", TEXT), ("#00E5A0", MINT),
-                                  (" / ", DIM), ("#22D3EE", CYAN)], 11))
-
-    ny = max(fy2 + 36 + 34, BH - 72)
-    out.append(f'<line x1="{x}" y1="{ny-14}" x2="{W-18}" y2="{ny-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    out.append(runs(x, ny + 4, [("# ", DIM), ("what the file does not say", DIM)], 11))
-    out.append(runs(x, ny + 24, [("> ", MINT), ("ships fast, documents faster,", TEXT)], 11))
-    out.append(runs(x, ny + 42, [("  ", DIM), ("answers every issue.", TEXT)], 11))
-
-    return card(W, BH, "YAML.tsx", "PROFILE.YAML",
-                "Keys and columns — the profile as a config file.",
-                "".join(body) + "".join(out),
-                "nested, commented, and diff-friendly")
-
-
-# ── 05 · packageJSON.tsx (tall) ─────────────────────────────────────────────
-def build_pkg():
-    W, BH = 560, globals().get('HUG', 528)
-    p, cell, rows = 16, 8, 13
-    band_h = rows * cell
-    body = [band_robot(p, p, (W - 2 * p) // cell, rows, cell)]
-    body.append(robot_face(W / 2, p + 22, 8))
-
-    s, step = 11.4, 18.8
-    x, y = 20, p + band_h + 22
-    ind = 2 * cw(s)
-    out = []
-
-    def line(depth, segs):
-        nonlocal y
-        out.append(runs(x + depth * ind, y, segs, s))
-        y += step
-
-    line(0, [("{", DIM)])
-    line(1, [('"name"', CYAN), (": ", DIM), ('"garvit"', MINT), (",", DIM)])
-    line(1, [('"version"', CYAN), (": ", DIM), ('"2026.10.31"', MINT), (",", DIM)])
-    line(1, [('"description"', CYAN), (":", DIM)])
-    line(2, [('"cyber security student · discord dev"', AMBER), (",", DIM)])
-    line(1, [('"scripts"', CYAN), (": {", DIM)])
-    line(2, [('"learn"', CYAN), (": ", DIM), ('"read the rfc, then the exploit"', AMBER), (",", DIM)])
-    line(2, [('"break"', CYAN), (": ", DIM), ('"find the edge case"', AMBER), (",", DIM)])
-    line(2, [('"fix"', CYAN), (":   ", DIM), ('"make it boring"', AMBER), (",", DIM)])
-    line(2, [('"ship"', CYAN), (":  ", DIM), ('"repeat until 3am"', AMBER)])
-    line(1, [("},", DIM)])
-    line(1, [('"keywords"', CYAN), (": ", DIM), ('["security", "discord", "bots"]', TEXT), (",", DIM)])
-    line(1, [('"dependencies"', CYAN), (": {", DIM)])
-    line(2, [('"curiosity"', CYAN), (": ", DIM), ('"^9.9.9"', MINT), (",", DIM)])
-    line(2, [('"coffee"', CYAN), (": ", DIM), ('"latest"', MINT), (",", DIM)])
-    line(2, [('"@garvit/bots"', CYAN), (": ", DIM), ('"github:Garvittt-API"', MINT)])
-    line(1, [("},", DIM)])
-    line(1, [('"homepage"', CYAN), (": ", DIM), ('"garvitt-dev.vercel.app"', CYAN), (",", DIM)])
-    line(1, [('"license"', CYAN), (": ", DIM), ('"MIT"', MINT)])
-    line(0, [("}", DIM)])
-
-    fy2 = y + 16
-    out.append(f'<line x1="{x}" y1="{fy2-14}" x2="{W-18}" y2="{fy2-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
-    out.append(runs(x, fy2, [("$ ", DIM), ("npm i @garvit/bots", WHITE)], 11))
-    out.append(runs(x, fy2 + 18, [("+ @garvit/bots@1.0.0", MINT)], 11))
-    out.append(runs(x, fy2 + 36, [("added 1 package in ", DIM), ("412ms", CYAN)], 11))
-
-    return card(W, BH, "packageJSON.tsx", "MANIFEST",
-                "The year in code, shipped as a manifest.",
-                "".join(body) + "".join(out),
-                "scripts are honest, dependencies are not")
-
-
-# ── 06 · builds.sh (wide) ───────────────────────────────────────────────────
-def build_builds():
-    W, BH = 1100, 442
-    body = [runs(24, 62, [("$ ", DIM), ("ls ~/builds", WHITE), ("  --sort=signal", DIM)], 13, 600),
-            text(24, 82, "# four things worth clicking", 11.5, DIM)]
-
-    projects = [
-        ("Val-X", "01", "valorant stat tracker", "match history, metrics, playstyle trends",
-         ["TypeScript", "Next.js", "API"], "08", MINT),
-        ("ScamLens", "02", "explainable scam detection", "message, screenshot and URL analysis",
-         ["TypeScript", "AI", "Security"], "04", CYAN),
-        ("Aegis-Scan", "03", "local-first appsec assessment", "multi-engine scan to readable report",
-         ["Python", "AppSec", "CLI"], "06", MINT),
-        ("CodeNexus", "04", "semantic code search", "ask a codebase a question in english",
-         ["FastAPI", "FAISS", "tree-sitter"], "08", CYAN),
+        ("section", "GitHub Stats"),
+        ("kv", "Repos:", "30 public · 262 stars"),
+        ("kv", "Commits:", "435"),
+        ("kv", "Opened:", "jan 2025"),
     ]
-    cw_, ch_ = 517, 148
-    for i, (name, num, tag, desc, stack, stars, accent) in enumerate(projects):
-        cx = 24 + (i % 2) * (cw_ + 18)
-        cy = 96 + (i // 2) * (ch_ + 12)
-        body.append(f'<rect x="{cx}" y="{cy}" width="{cw_}" height="{ch_}" rx="9" fill="#0B1219" '
-                    f'stroke="{FAINT}"/>')
-        body.append(f'<rect x="{cx}" y="{cy}" width="3" height="{ch_}" fill="{accent}"/>')
-        body.append(text(cx + 22, cy + 24, num, 10.5, DIM, 600, ls="1.4"))
-        body.append(text(cx + 22, cy + 50, name, 20, WHITE, 700, SANS))
-        body.append(text(cx + 22, cy + 71, tag, 11.5, accent, 500))
-        body.append(text(cx + 22, cy + 92, desc, 11, TEXT))
-        px = cx + 22
-        for j, tech in enumerate(stack):
-            body.append(pill(px, cy + 107, tech, accent if j == 0 else CYAN, 10, 7, 18))
-            px += len(tech) * cw(10) + 14 + 7
-        body.append(star_path(cx + cw_ - 34, cy + 22, 7, AMBER))
-        body.append(text(cx + cw_ - 22, cy + 48, stars, 13, TEXT, 600, anchor="end"))
-        body.append(f'<path d="M{cx+cw_-96} {cy+ch_-22} h11 m-4 -4 4 4 -4 4" stroke="{DIM}" '
-                    f'stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
-        body.append(text(cx + cw_ - 22, cy + ch_ - 18, "open repo", 10.5, DIM, 500, anchor="end"))
 
-    body.append(runs(24, BH - 16, [("# ", DIM), ("stars as of oct 2026 — go add one", DIM)], 10.5))
+    col_x0, col_x1 = PORTRAIT_W + 34, W - 20
+    s_, step_, gap_ = 12.6, 19.0, 8.0
+    BOTTOM_Y = top + sum(step_ if r[0] != "gap" else gap_ for r in ROWS) - 2
+    _yb = top
+    body.append(f'<line x1="{PORTRAIT_W + 18}" y1="{top - 14}" x2="{PORTRAIT_W + 18}" '
+                f'y2="{BOTTOM_Y}" stroke="{FAINT}" stroke-opacity=".45"/>')
 
-    return card(W, BH, "builds.sh", "FEATURED",
-                "Four builds that show the work: bots, security tooling, search.",
-                "".join(body), "details for each one are in the table below")
+    s, step, gap_h = 12.6, 19.0, 8.0
+    y = top + 2
+    for row in ROWS:
+        kind = row[0]
+        if kind == "section":
+            label = row[1]
+            body.append(text(col_x0, y, label, s, CYAN, 700, ls="0.2"))
+            body.append(leader(col_x0 + len(label) * cw(s) + 8, col_x1, y - 4))
+            y += step
+        elif kind == "kv":
+            label, value = row[1], row[2]
+            body.append(text(col_x0, y, label, s, CYAN))
+            body.append(leader(col_x0 + len(label) * cw(s) + 6,
+                               col_x1 - len(value) * cw(s) - 10, y - 4))
+            body.append(text(col_x1, y, value, s, WHITE, 500, anchor="end"))
+            y += step
+        else:
+            y += gap_h
+
+    body_h = y - HEAD_H + 4
+    return card(W, body_h, "System.tsx", "NEOTECH",
+                "The spec sheet — who this is, on one screen.",
+                "".join(body), "portrait · system · languages · tools · bio · stats")
 
 
-# ── 07 · arsenal.tsx (wide) ─────────────────────────────────────────────────
+# ── 03 · arsenal.tsx (wide) ─────────────────────────────────────────────────
 def build_arsenal():
     W, BH = 1100, 300
     p, cell, rows = 18, 10, 6
@@ -918,51 +721,17 @@ def build_arsenal():
                 "".join(body), "anything missing was probably installed at 2am")
 
 
-def hug(builder, pad=20, tries=4):
-    """rebuild a tall card with the shortest body that still fits its content"""
-    svg = builder()
-    for _ in range(tries):
-        m = re.search(r'<rect y="(\d+)" width="\d+" height="(\d+)" fill="#080C12"/>', svg)
-        if not m:
-            break
-        head, body_h = int(m.group(1)), int(m.group(2))
-        start = svg.index('fill="#080C12"/>', svg.index('clip-path="url(#bodyClip)"'))
-        end = svg.index("</g>", start)
-        need = int(content_bottom(svg[start:end]) - head) + pad
-        need = max(320, min(need, body_h))
-        if abs(need - body_h) <= 2:
-            break
-        builder.__globals__["HUG"] = need
-        svg = builder()
-    return svg
-
-
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    # the four tall cards share one body height so the 2x2 grid stays level
-    tall = [build_system, build_bash, build_yaml, build_pkg]
-    heights = []
-    for b in tall:
-        svg = b()
-        m = re.search(r'<rect y="(\d+)" width="\d+" height="(\d+)" fill="#080C12"/>', svg)
-        head = int(m.group(1))
-        st = svg.index('fill="#080C12"/>', svg.index('clip-path="url(#bodyClip)"'))
-        en = svg.index("</g>", st)
-        heights.append(int(content_bottom(svg[st:en]) - head) + 22)
-    globals()["HUG"] = max(heights)
     files = {
         "hero.svg": build_hero(),
         "system.svg": build_system(),
-        "bash.svg": build_bash(),
-        "yaml.svg": build_yaml(),
-        "packagejson.svg": build_pkg(),
-        "builds.svg": build_builds(),
         "arsenal.svg": build_arsenal(),
     }
     for name, svg in files.items():
         (OUT / name).write_text(svg, encoding="utf-8")
-        h = re.search(r'height="(\d+)"', svg).group(1)
-        print(f"assets/cards/{name:16s} {len(svg)/1024:6.1f} kB  h={h}")
+        h = re.search(r'<svg[^>]*height="([\d.]+)"', svg).group(1)
+        print(f"assets/cards/{name:12s} {len(svg)/1024:6.1f} kB  h={h}")
 
 
 if __name__ == "__main__":
