@@ -14,12 +14,12 @@ Python — palette, copy and pixel art all live in that one file.
 
 | Card | File | Size | Used as |
 | :-- | :-- | :-- | :-- |
-| `readme.md` | `hero.svg` | 1100 × 510 | full-width hero, links to the portfolio |
-| `System.tsx` | `system.svg` | 560 × 646 | top-left of the 2×2 grid |
-| `Bash.tsx` | `bash.svg` | 560 × 646 | top-right of the 2×2 grid |
-| `YAML.tsx` | `yaml.svg` | 560 × 646 | bottom-left of the 2×2 grid |
-| `packageJSON.tsx` | `packagejson.svg` | 560 × 646 | bottom-right of the 2×2 grid |
-| `builds.sh` | `builds.svg` | 1100 × 600 | Featured Builds, above the project table |
+| `readme.md` | `hero.svg` | 1100 × 578 | full-width hero, links to the portfolio |
+| `System.tsx` | `system.svg` | 560 × 693 | top-left of the 2×2 grid |
+| `Bash.tsx` | `bash.svg` | 560 × 693 | top-right of the 2×2 grid |
+| `YAML.tsx` | `yaml.svg` | 560 × 693 | bottom-left of the 2×2 grid |
+| `packageJSON.tsx` | `packagejson.svg` | 560 × 693 | bottom-right of the 2×2 grid |
+| `builds.sh` | `builds.svg` | 1100 × 560 | Featured Builds, above the project table |
 | `arsenal.tsx` | `arsenal.svg` | 1100 × 434 | Arsenal section |
 
 The four tall cards are shown at 50% width inside a `<table>`, which is what
