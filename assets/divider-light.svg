@@ -1,39 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="64" viewBox="0 0 1280 64" fill="none" role="img" aria-label="decorative divider">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="56" viewBox="0 0 1280 56" fill="none" role="img" aria-label="divider">
   <defs>
-    <linearGradient id="dline" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0b93b5" stop-opacity="0"/>
-      <stop offset="0.28" stop-color="#0b93b5" stop-opacity=".55"/>
-      <stop offset="0.5" stop-color="#6d28d9" stop-opacity=".9"/>
-      <stop offset="0.72" stop-color="#db2777" stop-opacity=".55"/>
-      <stop offset="1" stop-color="#db2777" stop-opacity="0"/>
+    <linearGradient id="dl" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E9F7B" stop-opacity="0"/>
+      <stop offset="0.3" stop-color="#0E9F7B" stop-opacity=".45"/>
+      <stop offset="0.5" stop-color="#0C7F93" stop-opacity=".75"/>
+      <stop offset="0.7" stop-color="#0E9F7B" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#0E9F7B" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="comet" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0b93b5" stop-opacity="0"/>
-      <stop offset="1" stop-color="#0b93b5" stop-opacity=".9"/>
-    </linearGradient>
-    <radialGradient id="core" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#6d28d9" stop-opacity=".55"/>
-      <stop offset="0.35" stop-color="#6d28d9" stop-opacity=".22"/>
-      <stop offset="1" stop-color="#6d28d9" stop-opacity="0"/>
+    <radialGradient id="dc" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0E9F7B" stop-opacity=".5"/><stop offset="1" stop-color="#0E9F7B" stop-opacity="0"/>
     </radialGradient>
-    <filter id="dglow" x="-200%" y="-400%" width="500%" height="900%">
-      <feGaussianBlur stdDeviation="3.2"/>
-    </filter>
+    <filter id="dglow" x="-300%" y="-500%" width="700%" height="1100%"><feGaussianBlur stdDeviation="3"/></filter>
   </defs>
-
-  <rect x="0" y="31" width="1280" height="1.6" fill="url(#dline)"/>
-
-  <circle cx="640" cy="32" r="40" fill="url(#core)" opacity=".22">
-    <animate attributeName="r" values="32;44;32" dur="6s" repeatCount="indefinite"/>
+  <rect y="27" width="1280" height="1.4" fill="url(#dl)"/>
+  <circle cx="640" cy="28" r="34" fill="url(#dc)" opacity=".5">
+    <animate attributeName="r" values="28;38;28" dur="6s" repeatCount="indefinite"/>
   </circle>
-  <path d="M640 24.5L647.5 32 640 39.5 632.5 32Z" fill="#6d28d9">
-    <animate attributeName="opacity" values=".65;1;.65" dur="4s" repeatCount="indefinite"/>
-  </path>
-  <circle cx="640" cy="32" r="3" fill="#fff" opacity=".9"/>
-
+  <path d="M640 21.5L646.5 28 640 34.5 633.5 28Z" fill="#0E9F7B"/>
   <g>
-    <rect x="-170" y="30.4" width="170" height="2.4" rx="1.2" fill="url(#comet)" filter="url(#dglow)"/>
-    <animateTransform attributeName="transform" type="translate" values="0 0;1400 0" dur="7s" repeatCount="indefinite"/>
+    <rect x="-150" y="26.6" width="150" height="2.2" rx="1.1" fill="#0E9F7B" fill-opacity=".8" filter="url(#dglow)"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0;1400 0" dur="7.5s" repeatCount="indefinite"/>
   </g>
 </svg>
