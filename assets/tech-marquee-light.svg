@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="168" viewBox="0 0 1280 168" fill="none" role="img" aria-label="Technology stack">
+  <defs>
+    <linearGradient id="mfade" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.075" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="0.925" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="mmask" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="168">
+      <rect width="1280" height="168" fill="url(#mfade)"/>
+    </mask>
+    <style>
+      .rowA { animation: rowA 21.8s linear infinite; }
+      .rowB { animation: rowB 28.2s linear infinite; }
+      @keyframes rowA { from { transform: translateX(0); } to { transform: translateX(-1348px); } }
+      @keyframes rowB { from { transform: translateX(-1747px); } to { transform: translateX(0); } }
+      @media (prefers-reduced-motion: reduce) { .rowA, .rowB { animation: none; } }
+    </style>
+  </defs>
+
+  <g mask="url(#mmask)" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="15.5" font-weight="600">
+    <g class="rowA">      <g><rect x="24" y="30" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="46" cy="52" r="3.6" fill="#0b93b5"/><text x="60" y="57" fill="#17213c">Python</text></g>
+      <g><rect x="165.6" y="30" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="187.6" cy="52" r="3.6" fill="#6d28d9"/><text x="201.6" y="57" fill="#17213c">TypeScript</text></g>
+      <g><rect x="345.6" y="30" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="367.6" cy="52" r="3.6" fill="#db2777"/><text x="381.6" y="57" fill="#17213c">JavaScript</text></g>
+      <g><rect x="525.6" y="30" width="83.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="547.6" cy="52" r="3.6" fill="#0b93b5"/><text x="561.6" y="57" fill="#17213c">Go</text></g>
+      <g><rect x="628.8" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="650.8" cy="52" r="3.6" fill="#6d28d9"/><text x="664.8" y="57" fill="#17213c">Rust</text></g>
+      <g><rect x="751.2" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="773.2" cy="52" r="3.6" fill="#db2777"/><text x="787.2" y="57" fill="#17213c">Dart</text></g>
+      <g><rect x="873.6" y="30" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="895.6" cy="52" r="3.6" fill="#0b93b5"/><text x="909.6" y="57" fill="#17213c">Kotlin</text></g>
+      <g><rect x="1015.2" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1037.2" cy="52" r="3.6" fill="#6d28d9"/><text x="1051.2" y="57" fill="#17213c">Java</text></g>
+      <g><rect x="1137.6" y="30" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1159.6" cy="52" r="3.6" fill="#db2777"/><text x="1173.6" y="57" fill="#17213c">C++</text></g>
+      <g><rect x="1250.4" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1272.4" cy="52" r="3.6" fill="#0b93b5"/><text x="1286.4" y="57" fill="#17213c">Bash</text></g>
+      <g><rect x="1372.8" y="30" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1394.8" cy="52" r="3.6" fill="#0b93b5"/><text x="1408.8" y="57" fill="#17213c">Python</text></g>
+      <g><rect x="1514.4" y="30" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1536.4" cy="52" r="3.6" fill="#6d28d9"/><text x="1550.4" y="57" fill="#17213c">TypeScript</text></g>
+      <g><rect x="1694.4" y="30" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1716.4" cy="52" r="3.6" fill="#db2777"/><text x="1730.4" y="57" fill="#17213c">JavaScript</text></g>
+      <g><rect x="1874.4" y="30" width="83.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1896.4" cy="52" r="3.6" fill="#0b93b5"/><text x="1910.4" y="57" fill="#17213c">Go</text></g>
+      <g><rect x="1977.6" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1999.6" cy="52" r="3.6" fill="#6d28d9"/><text x="2013.6" y="57" fill="#17213c">Rust</text></g>
+      <g><rect x="2100.0" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2122.0" cy="52" r="3.6" fill="#db2777"/><text x="2136.0" y="57" fill="#17213c">Dart</text></g>
+      <g><rect x="2222.4" y="30" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2244.4" cy="52" r="3.6" fill="#0b93b5"/><text x="2258.4" y="57" fill="#17213c">Kotlin</text></g>
+      <g><rect x="2364.0" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2386.0" cy="52" r="3.6" fill="#6d28d9"/><text x="2400.0" y="57" fill="#17213c">Java</text></g>
+      <g><rect x="2486.4" y="30" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2508.4" cy="52" r="3.6" fill="#db2777"/><text x="2522.4" y="57" fill="#17213c">C++</text></g>
+      <g><rect x="2599.2" y="30" width="102.4" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2621.2" cy="52" r="3.6" fill="#0b93b5"/><text x="2635.2" y="57" fill="#17213c">Bash</text></g>
+</g>
+    <g class="rowB">      <g><rect x="24" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="46" cy="116" r="3.6" fill="#0b93b5"/><text x="60" y="121" fill="#17213c">FastAPI</text></g>
+      <g><rect x="175.2" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="197.2" cy="116" r="3.6" fill="#6d28d9"/><text x="211.2" y="121" fill="#17213c">Node.js</text></g>
+      <g><rect x="326.4" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="348.4" cy="116" r="3.6" fill="#db2777"/><text x="362.4" y="121" fill="#17213c">Next.js</text></g>
+      <g><rect x="477.6" y="94" width="112.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="499.6" cy="116" r="3.6" fill="#0b93b5"/><text x="513.6" y="121" fill="#17213c">React</text></g>
+      <g><rect x="609.6" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="631.6" cy="116" r="3.6" fill="#6d28d9"/><text x="645.6" y="121" fill="#17213c">Flutter</text></g>
+      <g><rect x="760.8" y="94" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="782.8" cy="116" r="3.6" fill="#db2777"/><text x="796.8" y="121" fill="#17213c">Discord.js</text></g>
+      <g><rect x="940.8" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="962.8" cy="116" r="3.6" fill="#0b93b5"/><text x="976.8" y="121" fill="#17213c">MongoDB</text></g>
+      <g><rect x="1092.0" y="94" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1114.0" cy="116" r="3.6" fill="#6d28d9"/><text x="1128.0" y="121" fill="#17213c">PostgreSQL</text></g>
+      <g><rect x="1272.0" y="94" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1294.0" cy="116" r="3.6" fill="#db2777"/><text x="1308.0" y="121" fill="#17213c">Docker</text></g>
+      <g><rect x="1413.6" y="94" width="112.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1435.6" cy="116" r="3.6" fill="#0b93b5"/><text x="1449.6" y="121" fill="#17213c">Linux</text></g>
+      <g><rect x="1545.6" y="94" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1567.6" cy="116" r="3.6" fill="#6d28d9"/><text x="1581.6" y="121" fill="#17213c">Git</text></g>
+      <g><rect x="1658.4" y="94" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1680.4" cy="116" r="3.6" fill="#db2777"/><text x="1694.4" y="121" fill="#17213c">AWS</text></g>
+      <g><rect x="1771.2" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1793.2" cy="116" r="3.6" fill="#0b93b5"/><text x="1807.2" y="121" fill="#17213c">FastAPI</text></g>
+      <g><rect x="1922.4" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="1944.4" cy="116" r="3.6" fill="#6d28d9"/><text x="1958.4" y="121" fill="#17213c">Node.js</text></g>
+      <g><rect x="2073.6" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2095.6" cy="116" r="3.6" fill="#db2777"/><text x="2109.6" y="121" fill="#17213c">Next.js</text></g>
+      <g><rect x="2224.8" y="94" width="112.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2246.8" cy="116" r="3.6" fill="#0b93b5"/><text x="2260.8" y="121" fill="#17213c">React</text></g>
+      <g><rect x="2356.8" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2378.8" cy="116" r="3.6" fill="#6d28d9"/><text x="2392.8" y="121" fill="#17213c">Flutter</text></g>
+      <g><rect x="2508.0" y="94" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2530.0" cy="116" r="3.6" fill="#db2777"/><text x="2544.0" y="121" fill="#17213c">Discord.js</text></g>
+      <g><rect x="2688.0" y="94" width="131.2" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2710.0" cy="116" r="3.6" fill="#0b93b5"/><text x="2724.0" y="121" fill="#17213c">MongoDB</text></g>
+      <g><rect x="2839.2" y="94" width="160.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="2861.2" cy="116" r="3.6" fill="#6d28d9"/><text x="2875.2" y="121" fill="#17213c">PostgreSQL</text></g>
+      <g><rect x="3019.2" y="94" width="121.6" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="3041.2" cy="116" r="3.6" fill="#db2777"/><text x="3055.2" y="121" fill="#17213c">Docker</text></g>
+      <g><rect x="3160.8" y="94" width="112.0" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="3182.8" cy="116" r="3.6" fill="#0b93b5"/><text x="3196.8" y="121" fill="#17213c">Linux</text></g>
+      <g><rect x="3292.8" y="94" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="3314.8" cy="116" r="3.6" fill="#6d28d9"/><text x="3328.8" y="121" fill="#17213c">Git</text></g>
+      <g><rect x="3405.6" y="94" width="92.8" height="44" rx="22" fill="#ffffff" fill-opacity=".92" stroke="#cfdaf3"/><circle cx="3427.6" cy="116" r="3.6" fill="#db2777"/><text x="3441.6" y="121" fill="#17213c">AWS</text></g>
+</g>
+  </g>
+</svg>
