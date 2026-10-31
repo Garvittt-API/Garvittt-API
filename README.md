@@ -239,9 +239,7 @@ I'm always up for a build that's slightly too ambitious, a security conversation
 <br>
 
 <p align="center">
-  <a href="https://github.com/Garvittt-API">
-    <img alt="Random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight">
-  </a>
+  <img alt="Random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight">
 </p>
 
 <p align="center">
@@ -277,13 +275,14 @@ Everything visual is either **hand-written SVG** in [`/assets`](./assets) or a p
 </details>
 
 <!--
-  ██████╗  █████╗ ██████╗ ██╗   ██╗██╗████████╗████████╗
-  ██╔══██╗██╔══██╗██╔══██╗██║   ██║██║╚══██╔══╝╚══██╔══╝
-  ██║  ██║███████║██████╔╝██║   ██║██║   ██║      ██║
-  ██║  ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║   ██║      ██║
-  ╚██████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║   ██║      ██║
-   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝   ╚═╝      ╚═╝
+  ────────────────────────────────────────────────────────────────────
+   you scrolled all the way down here. respect.
 
-  Built with too much coffee, a terminal, and an unreasonable
-  amount of attention to 1px alignment.
+   every pixel of the art in /assets is hand-written SVG —
+   no image generators, no template dump, no paid widgets.
+   just a terminal, too much coffee, and an unreasonable
+   amount of attention to 1px alignment.
+
+                                          — Garvittt.exe
+  ────────────────────────────────────────────────────────────────────
 -->
