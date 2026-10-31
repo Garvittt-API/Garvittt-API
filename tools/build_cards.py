@@ -846,7 +846,7 @@ def build_builds():
 
 # ── 07 · arsenal.tsx (wide) ─────────────────────────────────────────────────
 def build_arsenal():
-    W, BH = 1100, 316
+    W, BH = 1100, 300
     p, cell, rows = 18, 10, 6
     band_h = rows * cell
     body = [band_sigils(p, p, (W - 2 * p) // cell, rows, cell, seed=7)]
@@ -862,7 +862,7 @@ def build_arsenal():
          ("security", "appsec · burp suite · nmap · semgrep"),
          ("ai", "openai · langchain · faiss · whisper")],
     ]
-    y0 = p + band_h + 34
+    y0 = p + band_h + 30
     for ci, group in enumerate(cols):
         x0 = 24 + ci * 548
         x1 = x0 + 148
@@ -874,11 +874,35 @@ def build_arsenal():
                 body.append(text(x1 + 18, y, v, s, TEXT))
             else:
                 body.append(text(x1 + 18, y, v, s, TEXT))
-            y += 21
-    body.append(f'<line x1="572" y1="{y0-12}" x2="572" y2="{BH-46}" stroke="{FAINT}" stroke-opacity=".5"/>')
+            y += 20
+    # second column: certifies / reading, under the first block
+    x0 = 24 + 548
+    x1 = x0 + 148
+    y = y0 + 4 * 21 + 8
+    body.append(f'<line x1="{x0}" y1="{y-14}" x2="{W-24}" y2="{y-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
+    body.append(text(x0, y, "reading", 13, CYAN))
+    body.append(leader(x0 + 7 * cw(13) + 8, x1, y - 4))
+    body.append(text(x1 + 18, y, "the web application hacker's handbook", 13, TEXT))
+    y += 20
+    body.append(text(x0, y, "grinding", 13, CYAN))
+    body.append(leader(x0 + 8 * cw(13) + 8, x1, y - 4))
+    body.append(text(x1 + 18, y, "portswigger academy · picoctf", 13, TEXT))
+
+    lx0, lx1 = 24, 172
+    ly = y0 + 4 * 21 + 8
+    body.append(f'<line x1="{lx0}" y1="{ly-14}" x2="520" y2="{ly-14}" stroke="{FAINT}" stroke-opacity=".55"/>')
+    body.append(text(lx0, ly, "shipping", 13, CYAN))
+    body.append(leader(lx0 + 8 * cw(13) + 8, lx1, ly - 4))
+    body.append(text(lx1 + 18, ly, "discord bots · dev tooling", 13, TEXT))
+    ly += 20
+    body.append(text(lx0, ly, "writing", 13, CYAN))
+    body.append(leader(lx0 + 7 * cw(13) + 8, lx1, ly - 4))
+    body.append(text(lx1 + 18, ly, "writeups · readmes · docs", 13, TEXT))
+
+    body.append(f'<line x1="572" y1="{y0-12}" x2="572" y2="{ly-40}" stroke="{FAINT}" stroke-opacity=".5"/>')
 
     # bottom strip: what I'm doing / learning / reading
-    by = BH - 44
+    by = BH - 30
     body.append(f'<line x1="24" y1="{by-14}" x2="{W-24}" y2="{by-14}" stroke="{FAINT}" stroke-opacity=".5"/>')
     items = [("now", "shipping bots", MINT),
              ("learning", "rust async · binary exploitation", CYAN),
