@@ -2,7 +2,7 @@
   <br>
   <samp>
     Hello there! I'm <b><a rel="nofollow noopener noreferrer" target="_blank" href="https://garvittt.vercel.app/">Garvittt</a></b>.
-    <br>I am Harshit from India, a Cybersecurity student passionate about building secure applications and exploring automated bot development. I love learning new technologies, writing code in Node.js and Python, and understanding how to protect systems from modern threats.<br>
+    <br>🍀 I am Garvittt from India, a Cybersecurity student passionate about building secure applications and exploring automated bot development. I love learning new technologies, writing code in Node.js and Python, and understanding how to protect systems from modern threats.<br>
 </samp>
   <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/hollor_knight3.gif" width="200">
 </p>
